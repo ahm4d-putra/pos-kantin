@@ -1,4 +1,4 @@
-#  POS Kantin Sekolah
+# 🛒 POS Kantin Sekolah
 
 Web-based School Canteen Point of Sale System with multi-user authentication, real-time inventory management, and sales reporting.
 
@@ -13,6 +13,7 @@ Web-based School Canteen Point of Sale System with multi-user authentication, re
 | Firebase Authentication | User login |
 | Firebase Firestore | Real-time database |
 | React Router DOM | Page navigation |
+| Recharts | Sales chart visualization |
 
 ---
 
@@ -24,6 +25,7 @@ Web-based School Canteen Point of Sale System with multi-user authentication, re
 - Manage product stock
 - View stock report (highlights low stock < 5)
 - View sales report with date filter
+- Sales chart visualization (powered by Recharts)
 - Add & manage cashier accounts
 
 ###  Kasir (Cashier)
@@ -82,7 +84,7 @@ detail_transaksi → id, transaksiId, barangId, namaBarang, harga, jumlah, subto
 
 ---
 
-##  Installation & Setup
+## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
 ```bash
@@ -135,7 +137,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## 📊 System Flowchart
+##  System Flowchart
 
 ```mermaid
 flowchart TD
