@@ -4,7 +4,7 @@ Web-based School Canteen Point of Sale System with multi-user authentication, re
 
 ---
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -13,19 +13,22 @@ Web-based School Canteen Point of Sale System with multi-user authentication, re
 | Firebase Authentication | User login |
 | Firebase Firestore | Real-time database |
 | React Router DOM | Page navigation |
+| Recharts | Sales chart visualization |
 
 ---
 
-## ✨ Features
+##  Features
 
-### 👨‍💼 Admin
+###  Admin
 - Login with role-based access
 - Create, Read, Update, Delete (CRUD) product data
 - Manage product stock
 - View stock report (highlights low stock < 5)
 - View sales report with date filter
+- Sales chart visualization (powered by Recharts)
+- Add & manage cashier accounts
 
-### 🧑‍💻 Kasir (Cashier)
+###  Kasir (Cashier)
 - Login with role-based access
 - Browse products in grid view
 - Add products to cart
@@ -36,7 +39,7 @@ Web-based School Canteen Point of Sale System with multi-user authentication, re
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -70,7 +73,7 @@ src/
 
 ---
 
-## 🗄️ Firestore Collections
+##  Firestore Collections
 
 ```
 users            → uid, email, nama, role
@@ -124,18 +127,17 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## 👥 Default Accounts
+##  Default Accounts
 
 | Role | Email | Password |
 |---|---|---|
 | Admin | admin@kantin.com | admin123 |
-| Kasir | kasir@kantin.com | kasir123 |
 
-> These accounts must be created manually in Firebase Authentication.
+> Admin account must be created manually in Firebase Authentication. Cashier accounts can be added directly by the Admin through the app.
 
 ---
 
-## 📊 System Flowchart
+##  System Flowchart
 
 ```mermaid
 flowchart TD
