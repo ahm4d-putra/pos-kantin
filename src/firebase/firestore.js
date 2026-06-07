@@ -150,3 +150,7 @@ export const getUserRole = async (uid) => {
 export const addUserToFirestore = async (uid, data) => {
   return await setDoc(doc(db, "users", uid), data);
 };
+// === UPDATE PROFIL USER ===
+export const updateUserProfile = async (uid, data) => {
+  return await updateDoc(doc(db, "users", uid), data);
+};

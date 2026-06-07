@@ -1,10 +1,11 @@
-import { initializeApp } from "firebase/app"; // Perbaikan: initializeApp dipisah ke sini
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
-} from "firebase/auth";
+  updateEmail,
+} from "firebase/auth"; // Tambahkan updateEmail
 import { auth, firebaseConfig } from "./config";
 
 // === LOGIN & LOGOUT UTAMA ===
@@ -16,8 +17,7 @@ export const logoutUser = () => {
   return signOut(auth);
 };
 
-// === FITUR REGISTER (Bikin Akun Kasir/Admin Baru) ===
-// Trick: Gunakan Secondary App agar Admin tidak logout saat membuat akun baru
+// === FITUR REGISTER ===
 const secondaryApp = initializeApp(firebaseConfig, "Secondary");
 const secondaryAuth = getAuth(secondaryApp);
 
@@ -27,7 +27,11 @@ export const registerNewUser = async (email, password) => {
     email,
     password,
   );
-  // Langsung logout dari secondary auth setelah membuat akun
   await signOut(secondaryAuth);
   return userCredential;
+};
+
+// === UPDATE EMAIL ===
+export const updateUserEmailAuth = async (user, newEmail) => {
+  return await updateEmail(user, newEmail);
 };
