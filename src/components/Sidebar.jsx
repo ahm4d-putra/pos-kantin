@@ -5,9 +5,10 @@ import {
   Package,
   BarChart2,
   DollarSign,
+  Users,
   ShoppingCart,
   X,
-} from "lucide-react"; // Tambahkan X
+} from "lucide-react";
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
   const { role } = useAuth();
@@ -15,6 +16,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   const adminLinks = [
     { to: "/admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
     { to: "/admin/barang", icon: Package, label: "Data Barang" },
+    { to: "/admin/manajemen-user", icon: Users, label: "Manajemen User" },
     { to: "/admin/laporan-stok", icon: BarChart2, label: "Laporan Stok" },
     {
       to: "/admin/laporan-penjualan",
@@ -62,7 +64,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               to={link.to}
               onClick={closeSidebar} // Tutup sidebar otomatis saat menu diklik di HP
               className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-2.5 rounded transition-colors duration-200 ${isActive ? "bg-blue-600 text-white" : "text-gray-300 hover:bg-gray-800 hover:text-white"}`
+                `flex items-center gap-3 px-4 py-2.5 rounded transition-colors duration-200 ${
+                  isActive
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                }`
               }
             >
               <link.icon size={20} />

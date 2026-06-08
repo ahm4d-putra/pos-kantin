@@ -8,14 +8,15 @@ import DataBarang from "./pages/DataBarang";
 import LaporanStok from "./pages/LaporanStok";
 import LaporanPenjualan from "./pages/LaporanPenjualan";
 import Transaksi from "./pages/Transaksi";
-import Profile from "./pages/Profile"; // Import Halaman Profile
+import Profile from "./pages/Profile";
+import ManajemenUser from "./pages/ManajemenUser"; // Import halaman baru
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import MobileNav from "./components/MobileNav";
 import SplashScreen from "./components/SplashScreen";
 
 const ProtectedRoute = ({ children }) => {
-  const { user, role, loading } = useAuth();
+  const { user, loading } = useAuth();
   if (loading) return <SplashScreen />;
   if (!user) return <Navigate to="/" />;
   return children;
@@ -49,7 +50,7 @@ const MainLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="flex h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       <Sidebar
         isOpen={isSidebarOpen}
         closeSidebar={() => setIsSidebarOpen(false)}
@@ -110,6 +111,16 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/admin/manajemen-user"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <ManajemenUser />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/admin/laporan-stok"
           element={
             <ProtectedRoute>
@@ -152,7 +163,7 @@ const AppRoutes = () => {
           }
         />
 
-        {/* Profile Route (Bisa diakses Admin & Kasir) */}
+        {/* Profile Route */}
         <Route
           path="/profile"
           element={
